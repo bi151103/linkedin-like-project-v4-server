@@ -9,8 +9,14 @@ const PORT = process.env.PORT || 3000;
 const INFO_FILE = path.join(__dirname, "user-info.json");
 const EXPERIENCES_FILE = path.join(__dirname, "experiences.json");
 const CONNECTIONS_FILE = path.join(__dirname, "connections.json");
+const RECENT_SERCH_FILE = path.join(__dirname, "recentSearch.json");
 
-const allowedOrigins = ["https://bi151103.github.io", "http://127.0.0.1:5500"];
+const allowedOrigins = [
+  "https://bi151103.github.io",
+  "http://127.0.0.1:5500",
+  "http://127.0.0.1:4200",
+  "http://localhost:4200",
+];
 
 app.use(
   cors({
@@ -92,6 +98,15 @@ app.post("/api/experiences", (req, res) => {
     res.json({ message: "Update experiences successfully", data: newData });
   } catch (error) {
     res.status(500).json({ message: "Failed to save experiences data" });
+  }
+});
+
+app.get("/api/recent-search", (req, res) => {
+  try {
+    const data = readFromFile(RECENT_SERCH_FILE, []);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read recent search data" });
   }
 });
 
