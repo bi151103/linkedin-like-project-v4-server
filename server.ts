@@ -67,7 +67,7 @@ const readFromFile = <T>(filePath: string, defaultValue: T): T => {
   return JSON.parse(rawData) as T;
 };
 
-app.get("/api/info", (req: Request, res: Response) => {
+app.get("/api/user/info", (req: Request, res: Response) => {
   try {
     const data = readFromFile<InfoData>(INFO_FILE, {
       firstName: "",
