@@ -84,7 +84,7 @@ app.get("/api/user/info", (req: Request, res: Response) => {
   }
 });
 
-app.post("/api/info", (req: Request<{}, {}, InfoData>, res: Response) => {
+app.post("/api/user/info", (req: Request<{}, {}, InfoData>, res: Response) => {
   try {
     const newData = req.body;
     fs.writeFileSync(INFO_FILE, JSON.stringify(newData, null, 2), "utf8");
