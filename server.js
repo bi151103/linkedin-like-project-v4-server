@@ -36,7 +36,7 @@ const readFromFile = (filePath, defaultValue) => {
     const rawData = fs.readFileSync(filePath, "utf8");
     return JSON.parse(rawData);
 };
-app.get("/api/info", (req, res) => {
+app.get("/api/user/info", (req, res) => {
     try {
         const data = readFromFile(INFO_FILE, {
             firstName: "",
