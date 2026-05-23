@@ -1,115 +1,127 @@
-const express = require("express");
-const fs = require("fs");
-const cors = require("cors");
-const path = require("path");
-
+import express from "express";
+import fs from "fs";
+import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const INFO_FILE = path.join(__dirname, "user-info.json");
 const EXPERIENCES_FILE = path.join(__dirname, "experiences.json");
 const CONNECTIONS_FILE = path.join(__dirname, "connections.json");
 const RECENT_SERCH_FILE = path.join(__dirname, "recentSearch.json");
-
 const allowedOrigins = [
-  "https://bi151103.github.io",
-  "http://127.0.0.1:5500",
-  "http://127.0.0.1:4200",
-  "http://localhost:4200",
+    "https://bi151103.github.io",
+    "http://127.0.0.1:5500",
+    "http://127.0.0.1:4200",
+    "http://localhost:4200",
 ];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("CORS not allowed to access."));
-      }
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        }
+        else {
+            callback(new Error("CORS not allowed to access."));
+        }
     },
-  }),
-);
-
-app.use(express.json());
-
-const readFromFile = (filePath, defaultValue) => {
-  if (!fs.existsSync(filePath)) {
-    return defaultValue;
-  }
-  const rawData = fs.readFileSync(filePath, "utf8");
-  return JSON.parse(rawData);
 };
-
+app.use(cors(corsOptions));
+app.use(express.json());
+const readFromFile = (filePath, defaultValue) => {
+    if (!fs.existsSync(filePath)) {
+        return defaultValue;
+    }
+    const rawData = fs.readFileSync(filePath, "utf8");
+    return JSON.parse(rawData);
+};
 app.get("/api/info", (req, res) => {
-  try {
-    const data = readFromFile(INFO_FILE, {
-      firstName: "",
-      lastName: "",
-      education: "",
-      showEducation: false,
-      industry: "",
-      country: "",
-      location: "",
-    });
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ message: "Failed to read info data" });
-  }
+    try {
+        const data = readFromFile(INFO_FILE, {
+            firstName: "",
+            lastName: "",
+            education: "",
+            showEducation: false,
+            industry: "",
+            country: "",
+            location: "",
+        });
+        res.json(data);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read info data" });
+    }
 });
-
 app.post("/api/info", (req, res) => {
-  try {
-    const newData = req.body;
-    fs.writeFileSync(INFO_FILE, JSON.stringify(newData, null, 2), "utf8");
-    res.json({ message: "Update info successfully", data: newData });
-  } catch (error) {
-    res.status(500).json({ message: "Failed to save info data" });
-  }
+    try {
+        const newData = req.body;
+        fs.writeFileSync(INFO_FILE, JSON.stringify(newData, null, 2), "utf8");
+        res.json({ message: "Update info successfully", data: newData });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to save info data" });
+    }
 });
-
 app.get("/api/connections", (req, res) => {
-  try {
-    const data = readFromFile(CONNECTIONS_FILE, []);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ message: "Failed to read connections" });
-  }
+    try {
+        const data = readFromFile(CONNECTIONS_FILE, []);
+        res.json(data);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read connections" });
+    }
 });
-
 app.get("/api/experiences", (req, res) => {
-  try {
-    const data = readFromFile(EXPERIENCES_FILE, []);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ message: "Failed to read experiences data" });
-  }
+    try {
+        const data = readFromFile(EXPERIENCES_FILE, []);
+        res.json(data);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read experiences data" });
+    }
 });
-
 app.post("/api/experiences", (req, res) => {
-  try {
-    const newData = req.body;
-
-    fs.writeFileSync(
-      EXPERIENCES_FILE,
-      JSON.stringify(newData, null, 2),
-      "utf8",
-    );
-
-    res.json({ message: "Update experiences successfully", data: newData });
-  } catch (error) {
-    res.status(500).json({ message: "Failed to save experiences data" });
-  }
+    try {
+        const newData = req.body;
+        fs.writeFileSync(EXPERIENCES_FILE, JSON.stringify(newData, null, 2), "utf8");
+        res.json({ message: "Update experiences successfully", data: newData });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to save experiences data" });
+    }
 });
-
 app.get("/api/recent-search", (req, res) => {
-  try {
-    const data = readFromFile(RECENT_SERCH_FILE, []);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ message: "Failed to read recent search data" });
-  }
+    try {
+        const data = readFromFile(RECENT_SERCH_FILE, {
+            count: 0,
+            data: [],
+        });
+        res.json(data);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read recent search data" });
+    }
 });
-
+app.post("/api/remove-recent-search", (req, res) => {
+    try {
+        const itemDeletedList = req.body;
+        const current = readFromFile(RECENT_SERCH_FILE, {
+            count: 0,
+            data: [],
+        });
+        const data = current.data.filter((item) => !itemDeletedList.includes(item));
+        const newData = {
+            count: data.length,
+            data,
+        };
+        fs.writeFileSync(RECENT_SERCH_FILE, JSON.stringify(newData, null, 2), "utf8");
+        res.json({ message: "Update recent search successfully", data: newData });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to save experiences data" });
+    }
+});
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
