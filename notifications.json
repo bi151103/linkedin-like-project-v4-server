@@ -1,0 +1,67 @@
+{
+  "data": [
+    {
+      "id": "msg-01",
+      "type": "message",
+      "title": "New message",
+      "body": "Hi! Can we reschedule the call to 3 PM?",
+      "from": "Lan Nguyen",
+      "createdAt": "2026-05-24T08:15:00.000Z",
+      "isRead": false
+    },
+    {
+      "id": "net-01",
+      "type": "network",
+      "title": "New connection request",
+      "body": "Minh Tran wants to connect.",
+      "from": "Minh Tran",
+      "createdAt": "2026-05-24T06:40:00.000Z",
+      "isRead": false
+    },
+    {
+      "id": "noti-01",
+      "type": "notification",
+      "title": "Profile viewed",
+      "body": "Someone viewed your profile.",
+      "from": "LinkedIn",
+      "createdAt": "2026-05-23T12:05:00.000Z",
+      "isRead": true
+    },
+    {
+      "id": "noti-02",
+      "type": "notification",
+      "title": "Post liked",
+      "body": "Huy Le liked your post.",
+      "from": "Huy Le",
+      "createdAt": "2026-05-23T10:22:00.000Z",
+      "isRead": true
+    },
+    {
+      "id": "noti-03",
+      "type": "notification",
+      "title": "Job alert",
+      "body": "3 new Frontend Developer jobs near you.",
+      "from": "Jobs",
+      "createdAt": "2026-05-22T08:30:00.000Z",
+      "isRead": false
+    },
+    {
+      "id": "noti-04",
+      "type": "notification",
+      "title": "Event reminder",
+      "body": "Tech Talk starts in 1 hour.",
+      "from": "Events",
+      "createdAt": "2026-05-22T03:00:00.000Z",
+      "isRead": false
+    },
+    {
+      "id": "noti-05",
+      "type": "notification",
+      "title": "Commented on your post",
+      "body": "\"Great post!\" on your post.",
+      "from": "Trang Pham",
+      "createdAt": "2026-05-21T15:45:00.000Z",
+      "isRead": true
+    }
+  ]
+}

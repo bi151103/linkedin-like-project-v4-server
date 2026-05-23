@@ -11,6 +11,8 @@ const INFO_FILE = path.join(__dirname, "user-info.json");
 const EXPERIENCES_FILE = path.join(__dirname, "experiences.json");
 const CONNECTIONS_FILE = path.join(__dirname, "connections.json");
 const RECENT_SERCH_FILE = path.join(__dirname, "recentSearch.json");
+const ABOUT_FILE = path.join(__dirname, "about.json");
+const NOTIFICATIONS_FILE = path.join(__dirname, "notifications.json");
 const allowedOrigins = [
     "https://bi151103.github.io",
     "http://127.0.0.1:5500",
@@ -53,7 +55,7 @@ app.get("/api/user/info", (req, res) => {
         res.status(500).json({ message: "Failed to read info data" });
     }
 });
-app.post("/api/info", (req, res) => {
+app.post("/api/user/info", (req, res) => {
     try {
         const newData = req.body;
         fs.writeFileSync(INFO_FILE, JSON.stringify(newData, null, 2), "utf8");
@@ -120,6 +122,51 @@ app.post("/api/remove-recent-search", (req, res) => {
     }
     catch (error) {
         res.status(500).json({ message: "Failed to save experiences data" });
+    }
+});
+app.get("/api/about", (req, res) => {
+    try {
+        const data = readFromFile(ABOUT_FILE, { data: "" });
+        res.json(data);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read about data" });
+    }
+});
+app.get("/api/notifications/messages", (req, res) => {
+    try {
+        const data = readFromFile(NOTIFICATIONS_FILE, {
+            data: [],
+        });
+        const items = data.data.filter((item) => item.type === "message");
+        res.json({ count: items.length, data: items });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read message notifications" });
+    }
+});
+app.get("/api/notifications/network", (req, res) => {
+    try {
+        const data = readFromFile(NOTIFICATIONS_FILE, {
+            data: [],
+        });
+        const items = data.data.filter((item) => item.type === "network");
+        res.json({ count: items.length, data: items });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read network notifications" });
+    }
+});
+app.get("/api/notifications/general", (req, res) => {
+    try {
+        const data = readFromFile(NOTIFICATIONS_FILE, {
+            data: [],
+        });
+        const items = data.data.filter((item) => item.type === "notification");
+        res.json({ count: items.length, data: items });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read notifications" });
     }
 });
 app.listen(PORT, () => {
