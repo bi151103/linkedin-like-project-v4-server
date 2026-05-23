@@ -16,6 +16,7 @@ const CONNECTIONS_FILE = path.join(__dirname, "connections.json");
 const RECENT_SERCH_FILE = path.join(__dirname, "recentSearch.json");
 const ABOUT_FILE = path.join(__dirname, "about.json");
 const NOTIFICATIONS_FILE = path.join(__dirname, "notifications.json");
+const EDUCATIONS_FILE = path.join(__dirname, "educations.json");
 
 const allowedOrigins = [
   "https://bi151103.github.io",
@@ -41,7 +42,14 @@ app.use(express.json());
 type InfoData = {
   firstName: string;
   lastName: string;
-  education: string;
+  education: {
+    id: string;
+    institution: {
+      id: string;
+      educationName: string;
+      educationLogoSrc: string;
+    };
+  };
   showEducation: boolean;
   industry: string;
   country: string;
@@ -89,6 +97,21 @@ type NotificationData = {
   data: (MessageNotification | NetworkNotification | GeneralNotification)[];
 };
 
+type Education = {
+  id: string;
+  institution: {
+    id: string;
+    educationName: string;
+    educationLogoSrc?: string;
+  };
+  major: string;
+  degreeType?: "bachelor" | "master";
+  duration: {
+    start: string;
+    end?: string;
+  };
+};
+
 const readFromFile = <T>(filePath: string, defaultValue: T): T => {
   if (!fs.existsSync(filePath)) {
     return defaultValue;
@@ -102,7 +125,14 @@ app.get("/api/user/info", (req: Request, res: Response) => {
     const data = readFromFile<InfoData>(INFO_FILE, {
       firstName: "",
       lastName: "",
-      education: "",
+      education: {
+        id: "",
+        institution: {
+          id: "",
+          educationName: "",
+          educationLogoSrc: "",
+        },
+      },
       showEducation: false,
       industry: "",
       country: "",
@@ -251,6 +281,21 @@ app.get("/api/notifications/general", (req: Request, res: Response) => {
     res.json({ count: items.length, data: items });
   } catch (error) {
     res.status(500).json({ message: "Failed to read notifications" });
+  }
+});
+
+app.get("/api/educations", (req: Request, res: Response) => {
+  try {
+    const data = readFromFile<{ count: number; data: Education[] }>(
+      EDUCATIONS_FILE,
+      {
+        count: 0,
+        data: [],
+      },
+    );
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read educations data" });
   }
 });
 

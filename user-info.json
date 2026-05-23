@@ -2,8 +2,15 @@
   "firstName": "Phuc",
   "lastName": "Dang",
   "headline": "Tester",
-  "education": "Ho Chi Minh City University of Technology",
-  "showEducation": false,
+  "education": {
+    "id": "education-0",
+    "institution": {
+      "id": "institution-0",
+      "educationName": "Ho Chi Minh City University of Technology",
+      "educationLogoSrc": "./images/bach-khoa-hcm.avif"
+    }
+  },
+  "showEducation": true,
   "industry": "Software Development",
   "country": "Viet Nam",
   "location": ""

@@ -13,6 +13,7 @@ const CONNECTIONS_FILE = path.join(__dirname, "connections.json");
 const RECENT_SERCH_FILE = path.join(__dirname, "recentSearch.json");
 const ABOUT_FILE = path.join(__dirname, "about.json");
 const NOTIFICATIONS_FILE = path.join(__dirname, "notifications.json");
+const EDUCATIONS_FILE = path.join(__dirname, "educations.json");
 const allowedOrigins = [
     "https://bi151103.github.io",
     "http://127.0.0.1:5500",
@@ -43,7 +44,14 @@ app.get("/api/user/info", (req, res) => {
         const data = readFromFile(INFO_FILE, {
             firstName: "",
             lastName: "",
-            education: "",
+            education: {
+                id: "",
+                institution: {
+                    id: "",
+                    educationName: "",
+                    educationLogoSrc: "",
+                },
+            },
             showEducation: false,
             industry: "",
             country: "",
@@ -167,6 +175,18 @@ app.get("/api/notifications/general", (req, res) => {
     }
     catch (error) {
         res.status(500).json({ message: "Failed to read notifications" });
+    }
+});
+app.get("/api/educations", (req, res) => {
+    try {
+        const data = readFromFile(EDUCATIONS_FILE, {
+            count: 0,
+            data: [],
+        });
+        res.json(data);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read educations data" });
     }
 });
 app.listen(PORT, () => {
