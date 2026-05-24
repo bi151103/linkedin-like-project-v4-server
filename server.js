@@ -51,6 +51,12 @@ app.get("/api/user/info", (req, res) => {
                     educationName: "",
                     educationLogoSrc: "",
                 },
+                major: "",
+                degreeType: "bachelor",
+                duration: {
+                    start: "",
+                    end: "",
+                },
             },
             showEducation: false,
             industry: "",

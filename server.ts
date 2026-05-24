@@ -49,6 +49,12 @@ type InfoData = {
       educationName: string;
       educationLogoSrc: string;
     };
+    major: string;
+    degreeType: "bachelor" | "master";
+    duration: {
+      start: string;
+      end: string;
+    };
   };
   showEducation: boolean;
   industry: string;
@@ -131,6 +137,12 @@ app.get("/api/user/info", (req: Request, res: Response) => {
           id: "",
           educationName: "",
           educationLogoSrc: "",
+        },
+        major: "",
+        degreeType: "bachelor",
+        duration: {
+          start: "",
+          end: "",
         },
       },
       showEducation: false,
