@@ -39,9 +39,16 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-type InfoData = {
+type UpdateResponse = {
+  message: string;
+  status: "error" | "success";
+};
+
+type UserInfo = {
+  id: string;
   firstName: string;
   lastName: string;
+  headline?: string;
   education?: Education;
   showEducation: boolean;
   industry: string;
@@ -115,7 +122,8 @@ const readFromFile = <T>(filePath: string, defaultValue: T): T => {
 
 app.get("/api/user/info", (req: Request, res: Response) => {
   try {
-    const data = readFromFile<InfoData>(INFO_FILE, {
+    const data = readFromFile<UserInfo>(INFO_FILE, {
+      id: "",
       firstName: "",
       lastName: "",
       showEducation: false,
@@ -129,15 +137,22 @@ app.get("/api/user/info", (req: Request, res: Response) => {
   }
 });
 
-app.post("/api/user/info", (req: Request<{}, {}, InfoData>, res: Response) => {
-  try {
-    const newData = req.body;
-    fs.writeFileSync(INFO_FILE, JSON.stringify(newData, null, 2), "utf8");
-    res.json({ message: "Update info successfully", data: newData });
-  } catch (error) {
-    res.status(500).json({ message: "Failed to save info data" });
-  }
-});
+app.post(
+  "/api/user/info",
+  (req: Request<{}, {}, UserInfo>, res: Response<UpdateResponse>) => {
+    try {
+      const newData = req.body;
+      fs.writeFileSync(INFO_FILE, JSON.stringify(newData, null, 2), "utf8");
+      res
+        .status(200)
+        .json({ message: "Update info successfully", status: "success" });
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: "Failed to save info data", status: "error" });
+    }
+  },
+);
 
 app.get("/api/connections", (req: Request, res: Response) => {
   try {

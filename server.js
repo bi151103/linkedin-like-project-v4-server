@@ -42,6 +42,7 @@ const readFromFile = (filePath, defaultValue) => {
 app.get("/api/user/info", (req, res) => {
     try {
         const data = readFromFile(INFO_FILE, {
+            id: "",
             firstName: "",
             lastName: "",
             showEducation: false,
@@ -59,10 +60,14 @@ app.post("/api/user/info", (req, res) => {
     try {
         const newData = req.body;
         fs.writeFileSync(INFO_FILE, JSON.stringify(newData, null, 2), "utf8");
-        res.json({ message: "Update info successfully", data: newData });
+        res
+            .status(200)
+            .json({ message: "Update info successfully", status: "success" });
     }
     catch (error) {
-        res.status(500).json({ message: "Failed to save info data" });
+        res
+            .status(500)
+            .json({ message: "Failed to save info data", status: "error" });
     }
 });
 app.get("/api/connections", (req, res) => {
