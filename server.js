@@ -44,20 +44,6 @@ app.get("/api/user/info", (req, res) => {
         const data = readFromFile(INFO_FILE, {
             firstName: "",
             lastName: "",
-            education: {
-                id: "",
-                institution: {
-                    id: "",
-                    educationName: "",
-                    educationLogoSrc: "",
-                },
-                major: "",
-                degreeType: "bachelor",
-                duration: {
-                    start: "",
-                    end: "",
-                },
-            },
             showEducation: false,
             industry: "",
             country: "",

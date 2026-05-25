@@ -42,20 +42,7 @@ app.use(express.json());
 type InfoData = {
   firstName: string;
   lastName: string;
-  education: {
-    id: string;
-    institution: {
-      id: string;
-      educationName: string;
-      educationLogoSrc: string;
-    };
-    major: string;
-    degreeType: "bachelor" | "master";
-    duration: {
-      start: string;
-      end: string;
-    };
-  };
+  education?: Education;
   showEducation: boolean;
   industry: string;
   country: string;
@@ -131,20 +118,6 @@ app.get("/api/user/info", (req: Request, res: Response) => {
     const data = readFromFile<InfoData>(INFO_FILE, {
       firstName: "",
       lastName: "",
-      education: {
-        id: "",
-        institution: {
-          id: "",
-          educationName: "",
-          educationLogoSrc: "",
-        },
-        major: "",
-        degreeType: "bachelor",
-        duration: {
-          start: "",
-          end: "",
-        },
-      },
       showEducation: false,
       industry: "",
       country: "",
