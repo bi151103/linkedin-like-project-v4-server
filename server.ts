@@ -3,6 +3,7 @@ import fs from "fs";
 import cors, { CorsOptions } from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
+import multer from "multer";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,27 @@ const RECENT_SERCH_FILE = path.join(__dirname, "recentSearch.json");
 const ABOUT_FILE = path.join(__dirname, "about.json");
 const NOTIFICATIONS_FILE = path.join(__dirname, "notifications.json");
 const EDUCATIONS_FILE = path.join(__dirname, "educations.json");
+const FEATURES_FILE = path.join(__dirname, "features.json");
+
+const UPLOADS_DIR = path.join(__dirname, "uploads");
+if (!fs.existsSync(UPLOADS_DIR)) {
+  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+}
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, UPLOADS_DIR);
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    const ext = path.extname(file.originalname);
+    cb(null, `feature-${uniqueSuffix}${ext}`);
+  },
+});
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 },
+});
+app.use("/uploads", express.static(UPLOADS_DIR));
 
 const allowedOrigins = [
   "https://bi151103.github.io",
@@ -114,6 +136,16 @@ type Education = {
 
 export interface About {
   data: string;
+}
+
+export type FeatureType = "link" | "media";
+
+export interface Feature {
+  id: string;
+  name: string;
+  description?: string;
+  type: FeatureType;
+  value: string; //path to file or link
 }
 
 const readFromFile = <T>(filePath: string, defaultValue: T): T => {
@@ -319,6 +351,96 @@ app.get("/api/educations", (req: Request, res: Response) => {
     res.status(500).json({ message: "Failed to read educations data" });
   }
 });
+
+app.get("/api/features", (req: Request, res: Response) => {
+  try {
+    const data = readFromFile<Feature[]>(FEATURES_FILE, []);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read features data" });
+  }
+});
+
+app.post(
+  "/api/features",
+  upload.single("file"),
+  (req: Request, res: Response<UpdateResponse>) => {
+    try {
+      const { name, description, type, value: linkValue } = req.body;
+
+      if (!name || !type) {
+        return res.status(400).json({
+          message: "Name and Type are required fields",
+          status: "error",
+        });
+      }
+
+      let finalValue = "";
+
+      if (type === "media") {
+        if (!req.file) {
+          return res.status(400).json({
+            message: "File is required when type is media",
+            status: "error",
+          });
+        }
+        finalValue = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+      } else if (type === "link") {
+        if (!linkValue) {
+          return res.status(400).json({
+            message: "Value string is required when type is link",
+            status: "error",
+          });
+        }
+        finalValue = linkValue;
+      } else {
+        return res.status(400).json({
+          message: "Invalid type. Must be 'link' or 'media'",
+          status: "error",
+        });
+      }
+
+      const newFeature: Feature = {
+        id: Date.now().toString(),
+        name,
+        description,
+        type: type as FeatureType,
+        value: finalValue,
+      };
+
+      const currentFeatures = readFromFile<{ count: number; data: Feature[] }>(
+        FEATURES_FILE,
+        {
+          count: 0,
+          data: [],
+        },
+      );
+      const featuresList = currentFeatures.data;
+      featuresList.push(newFeature);
+
+      const updatedData = {
+        count: featuresList.length,
+        data: featuresList,
+      };
+
+      fs.writeFileSync(
+        FEATURES_FILE,
+        JSON.stringify(updatedData, null, 2),
+        "utf8",
+      );
+
+      res.status(201).json({
+        message: "Feature added successfully",
+        status: "success",
+      });
+    } catch (error) {
+      console.error("DEBUG_SERVER_ERROR:", error);
+      res
+        .status(500)
+        .json({ message: "Failed to save feature data", status: "error" });
+    }
+  },
+);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
