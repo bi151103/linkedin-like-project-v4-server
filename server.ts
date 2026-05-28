@@ -142,7 +142,7 @@ export type FeatureType = "link" | "media";
 
 export interface Feature {
   id: string;
-  name: string;
+  name?: string;
   description?: string;
   type: FeatureType;
   value: string; //path to file or link
