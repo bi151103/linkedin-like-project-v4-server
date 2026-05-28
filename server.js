@@ -138,6 +138,20 @@ app.get("/api/about", (req, res) => {
         res.status(500).json({ message: "Failed to read about data" });
     }
 });
+app.post("/api/about", (req, res) => {
+    try {
+        const newData = req.body;
+        fs.writeFileSync(ABOUT_FILE, JSON.stringify(newData, null, 2), "utf8");
+        res
+            .status(200)
+            .json({ message: "Update about successfully", status: "success" });
+    }
+    catch (error) {
+        res
+            .status(500)
+            .json({ message: "Failed to save about data", status: "error" });
+    }
+});
 app.get("/api/notifications/messages", (req, res) => {
     try {
         const data = readFromFile(NOTIFICATIONS_FILE, {

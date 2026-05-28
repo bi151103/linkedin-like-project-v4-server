@@ -112,6 +112,10 @@ type Education = {
   };
 };
 
+export interface About {
+  data: string;
+}
+
 const readFromFile = <T>(filePath: string, defaultValue: T): T => {
   if (!fs.existsSync(filePath)) {
     return defaultValue;
@@ -235,12 +239,29 @@ app.post(
 
 app.get("/api/about", (req: Request, res: Response) => {
   try {
-    const data = readFromFile<{ data: string }>(ABOUT_FILE, { data: "" });
+    const data = readFromFile<About>(ABOUT_FILE, { data: "" });
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: "Failed to read about data" });
   }
 });
+
+app.post(
+  "/api/about",
+  (req: Request<{}, {}, About>, res: Response<UpdateResponse>) => {
+    try {
+      const newData = req.body;
+      fs.writeFileSync(ABOUT_FILE, JSON.stringify(newData, null, 2), "utf8");
+      res
+        .status(200)
+        .json({ message: "Update about successfully", status: "success" });
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: "Failed to save about data", status: "error" });
+    }
+  },
+);
 
 app.get("/api/notifications/messages", (req: Request, res: Response) => {
   try {
