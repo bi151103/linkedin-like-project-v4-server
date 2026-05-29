@@ -146,6 +146,7 @@ export interface Feature {
   description?: string;
   type: FeatureType;
   value: string; //path to file or link
+  linkThumbPath?: string;
 }
 
 const readFromFile = <T>(filePath: string, defaultValue: T): T => {
@@ -366,7 +367,7 @@ app.post(
   upload.single("file"),
   (req: Request, res: Response<UpdateResponse>) => {
     try {
-      const { name, description, type, value: linkValue } = req.body;
+      let { name, description, type, value: linkValue } = req.body;
 
       if (!name || !type) {
         return res.status(400).json({
@@ -376,6 +377,7 @@ app.post(
       }
 
       let finalValue = "";
+      let linkThumbPath;
 
       if (type === "media") {
         if (!req.file) {
@@ -392,6 +394,9 @@ app.post(
             status: "error",
           });
         }
+        if (req.file) {
+          linkThumbPath = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+        }
         finalValue = linkValue;
       } else {
         return res.status(400).json({
@@ -406,6 +411,7 @@ app.post(
         description,
         type: type as FeatureType,
         value: finalValue,
+        linkThumbPath,
       };
 
       const currentFeatures = readFromFile<{ count: number; data: Feature[] }>(

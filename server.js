@@ -232,7 +232,7 @@ app.get("/api/features", (req, res) => {
 });
 app.post("/api/features", upload.single("file"), (req, res) => {
     try {
-        const { name, description, type, value: linkValue } = req.body;
+        let { name, description, type, value: linkValue } = req.body;
         if (!name || !type) {
             return res.status(400).json({
                 message: "Name and Type are required fields",
@@ -240,6 +240,7 @@ app.post("/api/features", upload.single("file"), (req, res) => {
             });
         }
         let finalValue = "";
+        let linkThumbPath;
         if (type === "media") {
             if (!req.file) {
                 return res.status(400).json({
@@ -256,6 +257,9 @@ app.post("/api/features", upload.single("file"), (req, res) => {
                     status: "error",
                 });
             }
+            if (req.file) {
+                linkThumbPath = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+            }
             finalValue = linkValue;
         }
         else {
@@ -270,6 +274,7 @@ app.post("/api/features", upload.single("file"), (req, res) => {
             description,
             type: type,
             value: finalValue,
+            linkThumbPath,
         };
         const currentFeatures = readFromFile(FEATURES_FILE, {
             count: 0,
