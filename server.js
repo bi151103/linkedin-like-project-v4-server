@@ -232,7 +232,7 @@ app.get("/api/features", (req, res) => {
 });
 app.post("/api/features", upload.single("file"), (req, res) => {
     try {
-        let { name, description, type, value: linkValue } = req.body;
+        let { name, description, type, value: linkValue, } = req.body;
         if (!name || !type) {
             return res.status(400).json({
                 message: "Name and Type are required fields",
@@ -241,7 +241,7 @@ app.post("/api/features", upload.single("file"), (req, res) => {
         }
         let finalValue = "";
         let linkThumbPath;
-        if (type === "media") {
+        if (type === "image" || type === "document") {
             if (!req.file) {
                 return res.status(400).json({
                     message: "File is required when type is media",

@@ -138,7 +138,9 @@ export interface About {
   data: string;
 }
 
-export type FeatureType = "link" | "media";
+export type FeatureType = "link" | MediaType;
+
+export type MediaType = "image" | "document";
 
 export interface Feature {
   id: string;
@@ -147,6 +149,14 @@ export interface Feature {
   type: FeatureType;
   value: string; //path to file or link
   linkThumbPath?: string;
+}
+
+export interface CreateFeatureRequest {
+  name: string;
+  description?: string;
+  type: "link" | MediaType;
+  value?: string;
+  file?: File | null;
 }
 
 const readFromFile = <T>(filePath: string, defaultValue: T): T => {
@@ -367,7 +377,12 @@ app.post(
   upload.single("file"),
   (req: Request, res: Response<UpdateResponse>) => {
     try {
-      let { name, description, type, value: linkValue } = req.body;
+      let {
+        name,
+        description,
+        type,
+        value: linkValue,
+      } = req.body as CreateFeatureRequest;
 
       if (!name || !type) {
         return res.status(400).json({
@@ -379,7 +394,7 @@ app.post(
       let finalValue = "";
       let linkThumbPath;
 
-      if (type === "media") {
+      if (type === "image" || type === "document") {
         if (!req.file) {
           return res.status(400).json({
             message: "File is required when type is media",
