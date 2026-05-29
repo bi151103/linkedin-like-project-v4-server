@@ -365,8 +365,20 @@ app.get("/api/educations", (req: Request, res: Response) => {
 
 app.get("/api/features", (req: Request, res: Response) => {
   try {
-    const data = readFromFile<Feature[]>(FEATURES_FILE, []);
-    res.json(data);
+    const data = readFromFile<{ count: number; data: Feature[] }>(
+      FEATURES_FILE,
+      {
+        count: 0,
+        data: [],
+      },
+    );
+    const sortedFeatures = data.data.sort(
+      (a, b) => parseInt(b.id) - parseInt(a.id),
+    );
+    res.json({
+      count: data.count,
+      data: sortedFeatures,
+    });
   } catch (error) {
     res.status(500).json({ message: "Failed to read features data" });
   }
