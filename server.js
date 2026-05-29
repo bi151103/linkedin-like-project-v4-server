@@ -34,7 +34,6 @@ const upload = multer({
     storage: storage,
     limits: { fileSize: 10 * 1024 * 1024 },
 });
-app.use("/uploads", express.static(UPLOADS_DIR));
 const allowedOrigins = [
     "https://bi151103.github.io",
     "http://127.0.0.1:5500",
@@ -51,6 +50,7 @@ const corsOptions = {
         }
     },
 };
+app.use("/uploads", cors(corsOptions), express.static(UPLOADS_DIR));
 app.use(cors(corsOptions));
 app.use(express.json());
 const readFromFile = (filePath, defaultValue) => {
