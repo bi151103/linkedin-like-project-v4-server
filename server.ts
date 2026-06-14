@@ -252,7 +252,7 @@ app.get("/api/recent-search", (req: Request, res: Response) => {
 
 app.post(
   "/api/remove-recent-search",
-  (req: Request<{}, {}, string[]>, res: Response) => {
+  (req: Request<{}, {}, string[]>, res: Response<UpdateResponse>) => {
     try {
       const itemDeletedList = req.body;
       const current = readFromFile<RecentSearchData>(RECENT_SERCH_FILE, {
@@ -273,9 +273,14 @@ app.post(
         "utf8",
       );
 
-      res.json({ message: "Update recent search successfully", data: newData });
+      res.status(200).json({
+        message: "Update recent search successfully",
+        status: "success",
+      });
     } catch (error) {
-      res.status(500).json({ message: "Failed to save experiences data" });
+      res
+        .status(500)
+        .json({ message: "Failed to update recent search", status: "error" });
     }
   },
 );
