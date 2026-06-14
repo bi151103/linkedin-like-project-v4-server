@@ -20,13 +20,13 @@
       "institution": {
         "id": "institution-1",
         "educationName": "Ho Chi Minh City University of Technology and Education",
-        "educationLogoSrc": "./images/bach-khoa-hcm.avif"
+        "educationLogoSrc": ""
       },
-      "major": "Computer Science",
-      "degreeType": "bachelor",
+      "major": "Information Technology",
+      "degreeType": "master",
       "duration": {
-        "start": "09/01/2021",
-        "end": "09/01/2025"
+        "start": "09/01/2026",
+        "end": "09/01/2028"
       }
     }
   ]

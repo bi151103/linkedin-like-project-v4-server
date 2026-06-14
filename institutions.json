@@ -1,0 +1,25 @@
+{
+  "count": 4,
+  "data": [
+    {
+      "id": "institution-0",
+      "educationName": "Ho Chi Minh City University of Technology",
+      "educationLogoSrc": "./images/bach-khoa-hcm.avif"
+    },
+    {
+      "id": "institution-1",
+      "educationName": "Ho Chi Minh City University of Technology",
+      "educationLogoSrc": ""
+    },
+    {
+      "id": "institution-2",
+      "educationName": "Ho Chi Minh City University of Information Technology",
+      "educationLogoSrc": ""
+    },
+    {
+      "id": "institution-3",
+      "educationName": "Ho Chi Minh City University of Science",
+      "educationLogoSrc": ""
+    }
+  ]
+}

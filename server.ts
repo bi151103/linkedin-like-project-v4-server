@@ -19,6 +19,11 @@ const ABOUT_FILE = path.join(__dirname, "about.json");
 const NOTIFICATIONS_FILE = path.join(__dirname, "notifications.json");
 const EDUCATIONS_FILE = path.join(__dirname, "educations.json");
 const FEATURES_FILE = path.join(__dirname, "features.json");
+const COMPANIES_FILE = path.join(__dirname, "companies.json");
+const GROUPS_FILE = path.join(__dirname, "groups.json");
+const INSTITUTIONS_FILE = path.join(__dirname, "institutions.json");
+const JOBS_FILE = path.join(__dirname, "jobs.json");
+const PEOPLE_FILE = path.join(__dirname, "people.json");
 
 const UPLOADS_DIR = path.join(__dirname, "uploads");
 if (!fs.existsSync(UPLOADS_DIR)) {
@@ -121,11 +126,7 @@ type NotificationData = {
 
 type Education = {
   id: string;
-  institution: {
-    id: string;
-    educationName: string;
-    educationLogoSrc?: string;
-  };
+  institution: Institution;
   major: string;
   degreeType?: "bachelor" | "master";
   duration: {
@@ -157,6 +158,49 @@ export interface CreateFeatureRequest {
   type: "link" | MediaType;
   value?: string;
   file?: File | null;
+}
+
+export interface Company {
+  companyId: string;
+  companyName: string;
+  companyLogoSrc?: string;
+}
+
+export interface Job {
+  id: string;
+  company: Company;
+  title: string;
+  location: string;
+  datePost: string;
+}
+
+export interface Person {
+  id: string;
+  firstName: string;
+  lastName: string;
+  avatarUrl?: string;
+  headline?: string;
+  relationship: {
+    connected: boolean; //true: 1st
+    hasConnectionInCommon: boolean; //true: 2nd; false: 3rd
+    connectedAt?: string;
+  };
+  country: string;
+  location: string;
+}
+
+export interface Group {
+  id: string;
+  groupName: string;
+  membersCount: number;
+  description: string;
+  groupThumbnailUrl?: string;
+}
+
+export interface Institution {
+  id: string;
+  educationName: string;
+  educationLogoSrc?: string;
 }
 
 const readFromFile = <T>(filePath: string, defaultValue: T): T => {
@@ -479,6 +523,151 @@ app.post(
     }
   },
 );
+
+app.get("/api/company", (req: Request, res: Response) => {
+  try {
+    const query = req.query["searchKey"] as string;
+    let data = readFromFile<{ count: number; data: Company[] }>(
+      COMPANIES_FILE,
+      {
+        count: 0,
+        data: [],
+      },
+    );
+    if (query) {
+      data.data = data.data.filter((e) =>
+        e.companyName.toLowerCase().includes(query.toLowerCase()),
+      );
+    }
+    res.json({
+      count: data.data.length,
+      data: data.data,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read company data" });
+  }
+});
+
+app.get("/api/job", (req: Request, res: Response) => {
+  try {
+    const { searchKey } = req.query;
+    let data = readFromFile<{ count: number; data: Job[] }>(JOBS_FILE, {
+      count: 0,
+      data: [],
+    });
+    if (searchKey) {
+      data.data = data.data.filter(
+        (e) =>
+          e.title.toLowerCase().includes((searchKey as string).toLowerCase()) ||
+          e.location
+            .toLowerCase()
+            .includes((searchKey as string).toLowerCase()),
+      );
+    }
+    res.json({
+      count: data.data.length,
+      data: data.data,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read job data" });
+  }
+});
+
+app.get("/api/people", (req: Request, res: Response) => {
+  try {
+    const { searchKey } = req.query;
+    let data = readFromFile<{ count: number; data: Person[] }>(PEOPLE_FILE, {
+      count: 0,
+      data: [],
+    });
+    if (searchKey) {
+      data.data = data.data.filter(
+        (e) =>
+          e.firstName
+            .toLowerCase()
+            .includes((searchKey as string).toLowerCase()) ||
+          e.lastName
+            .toLowerCase()
+            .includes((searchKey as string).toLowerCase()) ||
+          (e.headline
+            ? e.headline
+                .toLowerCase()
+                .includes((searchKey as string).toLowerCase())
+            : true),
+      );
+    }
+    res.json({
+      count: data.data.length,
+      data: data.data
+        .map((e) => {
+          return {
+            ...e,
+            connectionRel: e.relationship.connected
+              ? 1
+              : e.relationship.hasConnectionInCommon
+                ? 2
+                : 3,
+          };
+        })
+        .sort((a, b) => a.connectionRel - b.connectionRel),
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read people data" });
+  }
+});
+
+app.get("/api/group", (req: Request, res: Response) => {
+  try {
+    const { searchKey } = req.query;
+    let data = readFromFile<{ count: number; data: Group[] }>(GROUPS_FILE, {
+      count: 0,
+      data: [],
+    });
+    if (searchKey) {
+      data.data = data.data.filter(
+        (e) =>
+          e.groupName
+            .toLowerCase()
+            .includes((searchKey as string).toLowerCase()) ||
+          e.description
+            .toLowerCase()
+            .includes((searchKey as string).toLowerCase()),
+      );
+    }
+    res.json({
+      count: data.data.length,
+      data: data.data,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read group data" });
+  }
+});
+
+app.get("/api/education-institution", (req: Request, res: Response) => {
+  try {
+    const { searchKey } = req.query;
+    let data = readFromFile<{ count: number; data: Institution[] }>(
+      INSTITUTIONS_FILE,
+      {
+        count: 0,
+        data: [],
+      },
+    );
+    if (searchKey) {
+      data.data = data.data.filter((e) =>
+        e.educationName
+          .toLowerCase()
+          .includes((searchKey as string).toLowerCase()),
+      );
+    }
+    res.json({
+      count: data.data.length,
+      data: data.data,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read group data" });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

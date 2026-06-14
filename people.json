@@ -1,0 +1,1068 @@
+{
+  "count": 74,
+  "data": [
+    {
+      "id": "75",
+      "firstName": "A",
+      "lastName": "Nguyễn Văn",
+      "avatarUrl": "",
+      "headline": "SSE at Nab",
+      "relationship": {
+        "connected": false,
+        "hasConnectionInCommon": true
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "76",
+      "firstName": "B",
+      "lastName": "Nguyễn Văn",
+      "avatarUrl": "",
+      "headline": "SSE at KMS",
+      "relationship": {
+        "connected": false,
+        "hasConnectionInCommon": false
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "7",
+      "firstName": "Hùng",
+      "lastName": "Phan Quốc",
+      "avatarUrl": "",
+      "headline": "Fullstack Developer tại Global Tech",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-05-12T10:30:15Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "8",
+      "firstName": "Huyền",
+      "lastName": "Vũ Ngọc",
+      "avatarUrl": "",
+      "headline": "UI/UX Designer | Figma Expert",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-06-20T15:12:40Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "9",
+      "firstName": "Kiệt",
+      "lastName": "Đặng Tuấn",
+      "anomaly": "Backend Technical Lead",
+      "avatarUrl": "",
+      "headline": "Backend Lead Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-07-08T08:22:11Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "10",
+      "firstName": "Lan",
+      "lastName": "Bùi Tuyết",
+      "avatarUrl": "",
+      "headline": "HR Generalist tại KMS Solutions",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-08-19T14:40:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "11",
+      "firstName": "Mạnh",
+      "lastName": "Đỗ Xuân",
+      "avatarUrl": "",
+      "headline": "QA Automation Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-09-30T17:00:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "12",
+      "firstName": "Nam",
+      "lastName": "Hồ Thị",
+      "avatarUrl": "",
+      "headline": "Business Analyst | Scrum Master",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-10-14T09:15:30Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "13",
+      "firstName": "Ngọc",
+      "lastName": "Ngô Quang",
+      "avatarUrl": "",
+      "headline": "Cloud Solutions Architect",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-11-22T11:30:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "14",
+      "firstName": "Oanh",
+      "lastName": "Dương Thùy",
+      "avatarUrl": "",
+      "headline": "Digital Marketing Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-12-05T13:45:12Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "15",
+      "firstName": "Phúc",
+      "lastName": "Lý Gia",
+      "avatarUrl": "",
+      "headline": "Mobile App Developer (iOS/Android)",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-01-28T10:20:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "16",
+      "firstName": "Phượng",
+      "lastName": "Võ Kim",
+      "avatarUrl": "",
+      "headline": "Content Creator & SEO Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-02-14T16:10:05Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "17",
+      "firstName": "Quân",
+      "lastName": "Đinh Công",
+      "avatarUrl": "",
+      "headline": "Golang Backend Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-03-01T08:55:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "18",
+      "firstName": "Tâm",
+      "lastName": "Lương Minh",
+      "avatarUrl": "",
+      "headline": "AI Research Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-04-11T14:35:18Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "19",
+      "firstName": "Thảo",
+      "lastName": "Mai Thanh",
+      "avatarUrl": "",
+      "headline": "Project Coordinator tại NAB",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-05-25T09:00:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "20",
+      "firstName": "Trung",
+      "lastName": "Trịnh Đình",
+      "avatarUrl": "",
+      "headline": "Cybersecurity Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-06-09T11:24:36Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "21",
+      "firstName": "Uyên",
+      "lastName": "Nguyễn Bảo",
+      "avatarUrl": "",
+      "headline": "Data Engineer | SQL & Python",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-07-17T15:40:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "22",
+      "firstName": "Vinh",
+      "lastName": "Trần Cao",
+      "avatarUrl": "",
+      "headline": "Embedded Systems Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-08-22T10:15:50Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "23",
+      "firstName": "Vi",
+      "lastName": "Lê Thúy",
+      "avatarUrl": "",
+      "headline": "Graphic Designer | Brand Identity",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-09-05T13:00:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "24",
+      "firstName": "Yến",
+      "lastName": "Phạm Hải",
+      "avatarUrl": "",
+      "headline": "Customer Success Manager",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-10-12T16:45:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "25",
+      "firstName": "Anh",
+      "lastName": "Hoàng Quốc",
+      "avatarUrl": "",
+      "headline": "Node.js Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-11-03T08:50:12Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "26",
+      "firstName": "Bích",
+      "lastName": "Huỳnh Ngọc",
+      "avatarUrl": "",
+      "headline": "Scrum Master tại Code Leap",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-12-19T14:25:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "27",
+      "firstName": "Cảnh",
+      "lastName": "Phan Hữu",
+      "avatarUrl": "",
+      "headline": "Linux System Administrator",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-01-07T11:10:30Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "28",
+      "firstName": "Danh",
+      "lastName": "Vũ Tiến",
+      "avatarUrl": "",
+      "headline": "Ruby on Rails Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-02-21T09:35:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "29",
+      "firstName": "Đào",
+      "lastName": "Đặng Thị",
+      "avatarUrl": "",
+      "headline": "UI Lead Designer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-03-15T15:18:45Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "30",
+      "firstName": "Em",
+      "lastName": "Bùi Văn",
+      "avatarUrl": "",
+      "headline": "Vue.js Frontend Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-04-22T10:40:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "31",
+      "firstName": "Hiền",
+      "lastName": "Đỗ Diệu",
+      "avatarUrl": "",
+      "headline": "Financial Analyst",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-05-30T13:12:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "32",
+      "firstName": "Huy",
+      "lastName": "Hồ Nhật",
+      "avatarUrl": "",
+      "headline": "Flutter Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-06-14T08:50:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "33",
+      "firstName": "Hương",
+      "lastName": "Ngô Thanh",
+      "avatarUrl": "",
+      "headline": "Technical Recruiter",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-07-25T16:30:25Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "34",
+      "firstName": "Hùng",
+      "lastName": "Dương Văn",
+      "avatarUrl": "",
+      "headline": "Solution Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-08-08T11:20:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "35",
+      "firstName": "Khang",
+      "lastName": "Lý Minh",
+      "avatarUrl": "",
+      "headline": "Java Backend Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-09-19T14:10:15Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "36",
+      "firstName": "Liên",
+      "lastName": "Võ Thị",
+      "avatarUrl": "",
+      "headline": "Manual QA Tester",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-10-27T09:05:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "37",
+      "firstName": "Long",
+      "lastName": "Đinh Hoàng",
+      "avatarUrl": "",
+      "headline": "Network Engineer | CCNA",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-11-11T15:35:40Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "38",
+      "firstName": "Ngân",
+      "lastName": "Lương Kim Ngân",
+      "avatarUrl": "",
+      "headline": "Business Development Executive",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-12-24T10:20:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "39",
+      "firstName": "Nghĩa",
+      "lastName": "Mai Văn",
+      "avatarUrl": "",
+      "headline": "Angular Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-01-12T13:45:12Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "40",
+      "firstName": "Nhung",
+      "lastName": "Trịnh Hồng",
+      "avatarUrl": "",
+      "headline": "HR Operations Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-02-05T08:15:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "41",
+      "firstName": "Phát",
+      "lastName": "Nguyễn Đắc",
+      "avatarUrl": "",
+      "headline": "PHP Developer (Laravel)",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-03-28T16:00:30Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "42",
+      "firstName": "Phương",
+      "lastName": "Trần Thu",
+      "avatarUrl": "",
+      "headline": "Content Marketing Executive",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-04-09T11:22:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "43",
+      "firstName": "Quyền",
+      "lastName": "Lê Quốc",
+      "avatarUrl": "",
+      "headline": "IT Support Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-05-15T14:50:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "44",
+      "firstName": "Sang",
+      "lastName": "Phạm Thị",
+      "avatarUrl": "",
+      "headline": "Account Executive",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-06-28T10:10:15Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "45",
+      "firstName": "Tân",
+      "lastName": "Hoàng Minh",
+      "avatarUrl": "",
+      "headline": "Python Developer | Django",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-07-14T13:35:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "46",
+      "firstName": "Thạch",
+      "lastName": "Huỳnh Ngọc",
+      "avatarUrl": "",
+      "headline": "Database Administrator",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-08-30T15:20:45Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "47",
+      "firstName": "Trang",
+      "lastName": "Phan Thùy",
+      "avatarUrl": "",
+      "headline": "SEO Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-09-12T09:12:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "48",
+      "firstName": "Tuấn",
+      "lastName": "Vũ Anh",
+      "avatarUrl": "",
+      "headline": "React Native Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-10-05T11:40:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "49",
+      "firstName": "Tùng",
+      "lastName": "Đặng Minh",
+      "avatarUrl": "",
+      "headline": "Data Warehouse Architect",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-11-19T14:55:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "50",
+      "firstName": "Vân",
+      "lastName": "Bùi Thanh",
+      "avatarUrl": "",
+      "headline": "UI/UX Designer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-12-31T08:30:22Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "51",
+      "firstName": "Việt",
+      "lastName": "Đỗ Quang",
+      "avatarUrl": "",
+      "headline": "Security Analyst",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-01-21T10:15:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "52",
+      "firstName": "Xuân",
+      "lastName": "Hồ Bảo",
+      "avatarUrl": "",
+      "headline": "Sales Operations Manager",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-02-28T16:40:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "53",
+      "firstName": "Anh",
+      "lastName": "Ngô Minh",
+      "avatarUrl": "",
+      "headline": "C++ Software Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-03-11T13:20:15Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "54",
+      "firstName": "Bắc",
+      "lastName": "Dương Thị",
+      "avatarUrl": "",
+      "headline": "Executive Assistant",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-04-18T11:05:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "55",
+      "firstName": "Chiến",
+      "lastName": "Lý Hoàng",
+      "avatarUrl": "",
+      "headline": "Solutions Architect",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-05-02T15:30:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "56",
+      "firstName": "Dũng",
+      "lastName": "Võ Văn",
+      "avatarUrl": "",
+      "headline": "Infrastructure Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-06-19T09:22:45Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "57",
+      "firstName": "Hoa",
+      "lastName": "Đinh Thị",
+      "avatarUrl": "",
+      "headline": "Customer Relations Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-07-03T14:10:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "58",
+      "firstName": "Huy",
+      "lastName": "Lương Gia",
+      "avatarUrl": "",
+      "headline": "Machine Learning Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-08-11T10:45:12Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "59",
+      "firstName": "Khánh",
+      "lastName": "Mai Kim",
+      "avatarUrl": "",
+      "headline": "Digital Project Manager",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-09-22T16:00:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "60",
+      "firstName": "Lộc",
+      "lastName": "Trịnh Minh",
+      "avatarUrl": "",
+      "headline": "Embedded Firmware Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-10-08T11:15:30Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "61",
+      "firstName": "Mơ",
+      "lastName": "Nguyễn Thị",
+      "avatarUrl": "",
+      "headline": "Quality Assurance Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-11-14T08:45:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "62",
+      "firstName": "Nghĩa",
+      "lastName": "Trần Đại",
+      "avatarUrl": "",
+      "headline": "Technical Support Consultant",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-12-20T13:20:10Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "1",
+      "firstName": "Anh",
+      "lastName": "Nguyễn Văn",
+      "avatarUrl": "",
+      "headline": "Software Engineer tại Tech Solutions",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-03-25T08:30:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "2",
+      "firstName": "Bình",
+      "lastName": "Trần Thị",
+      "avatarUrl": "",
+      "headline": "Product Manager | UX Enthusiast",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-03-24T14:15:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "3",
+      "firstName": "Cường",
+      "lastName": "Lê Hoàng",
+      "avatarUrl": "",
+      "headline": "Data Scientist tại AI Innovations",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-03-20T09:45:20Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "4",
+      "firstName": "Đức",
+      "lastName": "Phạm Minh",
+      "avatarUrl": "",
+      "headline": "Frontend Developer | React & Next.js",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-01-15T16:20:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "5",
+      "firstName": "Giang",
+      "lastName": "Hoàng Thu",
+      "avatarUrl": "",
+      "headline": "Talent Acquisition Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-02-10T11:05:10Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "6",
+      "firstName": "Hà",
+      "lastName": "Huỳnh Thanh",
+      "avatarUrl": "",
+      "headline": "DevOps Engineer | AWS Certified",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-04-05T13:50:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "63",
+      "firstName": "Phong",
+      "lastName": "Lê Thanh",
+      "avatarUrl": "",
+      "headline": ".NET Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-01-05T10:50:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "64",
+      "firstName": "Quỳnh",
+      "lastName": "Phạm Như",
+      "avatarUrl": "",
+      "headline": "Business Intelligence Analyst",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-02-17T15:35:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "65",
+      "firstName": "Sơn",
+      "lastName": "Hoàng Công",
+      "avatarUrl": "",
+      "headline": "Systems Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-03-05T09:12:45Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "66",
+      "firstName": "Tâm",
+      "lastName": "Huỳnh Mỹ",
+      "avatarUrl": "",
+      "headline": "Product Marketing Manager",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2026-04-12T14:20:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "67",
+      "firstName": "Thái",
+      "lastName": "Phan Văn",
+      "avatarUrl": "",
+      "headline": "IT Infrastructure Lead",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-05-20T11:00:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "68",
+      "firstName": "Thúy",
+      "lastName": "Vũ Diệu",
+      "avatarUrl": "",
+      "headline": "Talent Management Specialist",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-06-03T16:30:15Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "69",
+      "firstName": "Toàn",
+      "lastName": "Đặng Đức",
+      "avatarUrl": "",
+      "headline": "Salesforce Developer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-07-21T09:45:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "70",
+      "firstName": "Trường",
+      "lastName": "Bùi Xuân",
+      "avatarUrl": "",
+      "headline": "Network Security Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-08-05T13:10:20Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "71",
+      "firstName": "Tú",
+      "lastName": "Đỗ Cẩm",
+      "avatarUrl": "",
+      "headline": "UI/UX Researcher",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-09-28T15:25:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "72",
+      "firstName": "Vinh",
+      "lastName": "Hồ Quang",
+      "avatarUrl": "",
+      "headline": "Big Data Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-10-19T10:40:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    },
+    {
+      "id": "73",
+      "firstName": "Dương",
+      "lastName": "Nguyễn Thùy",
+      "avatarUrl": "",
+      "headline": "Content Strategy Lead",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-11-07T14:15:35Z"
+      },
+      "country": "Vietnam",
+      "location": "Hanoi Capital"
+    },
+    {
+      "id": "74",
+      "firstName": "Quân",
+      "lastName": "Trần Minh",
+      "avatarUrl": "",
+      "headline": "Full Stack Engineer",
+      "relationship": {
+        "connected": true,
+        "hasConnectionInCommon": false,
+        "connectedAt": "2025-12-12T16:50:00Z"
+      },
+      "country": "Vietnam",
+      "location": "Ho Chi Minh City"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "count": 6,
+  "data": [
+    {
+      "companyId": "company-0",
+      "companyName": "CODE LEAP",
+      "companyLogoSrc": "./images/someone-leap.avif"
+    },
+    {
+      "companyId": "company-1",
+      "companyName": "Vietlink",
+      "companyLogoSrc": ""
+    },
+    {
+      "companyId": "company-2",
+      "companyName": "TESTINGVN",
+      "companyLogoSrc": ""
+    },
+    {
+      "companyId": "company-3",
+      "companyName": "FPT",
+      "companyLogoSrc": ""
+    },
+    {
+      "companyId": "company-4",
+      "companyName": "KMS",
+      "companyLogoSrc": ""
+    },
+    {
+      "companyId": "company-5",
+      "companyName": "NAB",
+      "companyLogoSrc": ""
+    }
+  ]
+}

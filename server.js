@@ -16,6 +16,11 @@ const ABOUT_FILE = path.join(__dirname, "about.json");
 const NOTIFICATIONS_FILE = path.join(__dirname, "notifications.json");
 const EDUCATIONS_FILE = path.join(__dirname, "educations.json");
 const FEATURES_FILE = path.join(__dirname, "features.json");
+const COMPANIES_FILE = path.join(__dirname, "companies.json");
+const GROUPS_FILE = path.join(__dirname, "groups.json");
+const INSTITUTIONS_FILE = path.join(__dirname, "institutions.json");
+const JOBS_FILE = path.join(__dirname, "jobs.json");
+const PEOPLE_FILE = path.join(__dirname, "people.json");
 const UPLOADS_DIR = path.join(__dirname, "uploads");
 if (!fs.existsSync(UPLOADS_DIR)) {
     fs.mkdirSync(UPLOADS_DIR, { recursive: true });
@@ -309,6 +314,132 @@ app.post("/api/features", upload.single("file"), (req, res) => {
         res
             .status(500)
             .json({ message: "Failed to save feature data", status: "error" });
+    }
+});
+app.get("/api/company", (req, res) => {
+    try {
+        const query = req.query["searchKey"];
+        let data = readFromFile(COMPANIES_FILE, {
+            count: 0,
+            data: [],
+        });
+        if (query) {
+            data.data = data.data.filter((e) => e.companyName.toLowerCase().includes(query.toLowerCase()));
+        }
+        res.json({
+            count: data.data.length,
+            data: data.data,
+        });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read company data" });
+    }
+});
+app.get("/api/job", (req, res) => {
+    try {
+        const { searchKey } = req.query;
+        let data = readFromFile(JOBS_FILE, {
+            count: 0,
+            data: [],
+        });
+        if (searchKey) {
+            data.data = data.data.filter((e) => e.title.toLowerCase().includes(searchKey.toLowerCase()) ||
+                e.location
+                    .toLowerCase()
+                    .includes(searchKey.toLowerCase()));
+        }
+        res.json({
+            count: data.data.length,
+            data: data.data,
+        });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read job data" });
+    }
+});
+app.get("/api/people", (req, res) => {
+    try {
+        const { searchKey } = req.query;
+        let data = readFromFile(PEOPLE_FILE, {
+            count: 0,
+            data: [],
+        });
+        if (searchKey) {
+            data.data = data.data.filter((e) => e.firstName
+                .toLowerCase()
+                .includes(searchKey.toLowerCase()) ||
+                e.lastName
+                    .toLowerCase()
+                    .includes(searchKey.toLowerCase()) ||
+                (e.headline
+                    ? e.headline
+                        .toLowerCase()
+                        .includes(searchKey.toLowerCase())
+                    : true));
+        }
+        res.json({
+            count: data.data.length,
+            data: data.data
+                .map((e) => {
+                return {
+                    ...e,
+                    connectionRel: e.relationship.connected
+                        ? 1
+                        : e.relationship.hasConnectionInCommon
+                            ? 2
+                            : 3,
+                };
+            })
+                .sort((a, b) => a.connectionRel - b.connectionRel),
+        });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read people data" });
+    }
+});
+app.get("/api/group", (req, res) => {
+    try {
+        const { searchKey } = req.query;
+        let data = readFromFile(GROUPS_FILE, {
+            count: 0,
+            data: [],
+        });
+        if (searchKey) {
+            data.data = data.data.filter((e) => e.groupName
+                .toLowerCase()
+                .includes(searchKey.toLowerCase()) ||
+                e.description
+                    .toLowerCase()
+                    .includes(searchKey.toLowerCase()));
+        }
+        res.json({
+            count: data.data.length,
+            data: data.data,
+        });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read group data" });
+    }
+});
+app.get("/api/education-institution", (req, res) => {
+    try {
+        const { searchKey } = req.query;
+        let data = readFromFile(INSTITUTIONS_FILE, {
+            count: 0,
+            data: [],
+        });
+        if (searchKey) {
+            data.data = data.data.filter((e) => e.educationName
+                .toLowerCase()
+                .includes(searchKey.toLowerCase()));
+        }
+        res.json({
+            count: data.data.length,
+            data: data.data,
+        });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read group data" });
     }
 });
 app.listen(PORT, () => {

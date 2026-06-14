@@ -1,0 +1,26 @@
+{
+  "count": 4,
+  "data": [
+    {
+      "id": "group_0",
+      "groupName": "Tuyển dụng Front-end Developer (Angular/ReactJS/VueJS)",
+      "membersCount": 150,
+      "description": "Nhóm tuyển dụng FE Dev chính thức tại Việt Nam",
+      "groupThumbnailUrl": "./images/fe-group-thumb.avif"
+    },
+    {
+      "id": "group_1",
+      "groupName": "Tuyển dụng Back-end Developer (NextJS/NestJS/ASP.NET Core)",
+      "membersCount": 200,
+      "description": "Nhóm tuyển dụng BE Dev chính thức tại Việt Nam",
+      "groupThumbnailUrl": "./images/be-group-thumb.avif"
+    },
+    {
+      "id": "group_0",
+      "groupName": "Tuyển dụng Front-end Developer (Angular/NestJS, Angular/ASP.NET Core/ React/NextJS)",
+      "membersCount": 300,
+      "description": "Nhóm tuyển dụng Fullstack Dev chính thức tại Việt Nam",
+      "groupThumbnailUrl": "./images/fullstack-group-thumb.avif"
+    }
+  ]
+}
