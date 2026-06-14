@@ -548,7 +548,7 @@ app.get("/api/company", (req: Request, res: Response) => {
   }
 });
 
-app.get("/api/job", (req: Request, res: Response) => {
+app.get("/api/jobs", (req: Request, res: Response) => {
   try {
     const { searchKey } = req.query;
     let data = readFromFile<{ count: number; data: Job[] }>(JOBS_FILE, {
@@ -616,7 +616,7 @@ app.get("/api/people", (req: Request, res: Response) => {
   }
 });
 
-app.get("/api/group", (req: Request, res: Response) => {
+app.get("/api/groups", (req: Request, res: Response) => {
   try {
     const { searchKey } = req.query;
     let data = readFromFile<{ count: number; data: Group[] }>(GROUPS_FILE, {
@@ -643,7 +643,7 @@ app.get("/api/group", (req: Request, res: Response) => {
   }
 });
 
-app.get("/api/education-institution", (req: Request, res: Response) => {
+app.get("/api/education-institutions", (req: Request, res: Response) => {
   try {
     const { searchKey } = req.query;
     let data = readFromFile<{ count: number; data: Institution[] }>(

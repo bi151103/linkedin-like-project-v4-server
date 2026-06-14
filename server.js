@@ -335,7 +335,7 @@ app.get("/api/company", (req, res) => {
         res.status(500).json({ message: "Failed to read company data" });
     }
 });
-app.get("/api/job", (req, res) => {
+app.get("/api/jobs", (req, res) => {
     try {
         const { searchKey } = req.query;
         let data = readFromFile(JOBS_FILE, {
@@ -397,7 +397,7 @@ app.get("/api/people", (req, res) => {
         res.status(500).json({ message: "Failed to read people data" });
     }
 });
-app.get("/api/group", (req, res) => {
+app.get("/api/groups", (req, res) => {
     try {
         const { searchKey } = req.query;
         let data = readFromFile(GROUPS_FILE, {
@@ -421,7 +421,7 @@ app.get("/api/group", (req, res) => {
         res.status(500).json({ message: "Failed to read group data" });
     }
 });
-app.get("/api/education-institution", (req, res) => {
+app.get("/api/education-institutions", (req, res) => {
     try {
         const { searchKey } = req.query;
         let data = readFromFile(INSTITUTIONS_FILE, {
