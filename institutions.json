@@ -4,7 +4,7 @@
     {
       "id": "institution-0",
       "educationName": "Ho Chi Minh City University of Technology",
-      "educationLogoSrc": "./images/bach-khoa-hcm.avif"
+      "educationLogoSrc": "assets/images/bach-khoa-hcm.avif"
     },
     {
       "id": "institution-1",

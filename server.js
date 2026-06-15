@@ -316,7 +316,7 @@ app.post("/api/features", upload.single("file"), (req, res) => {
             .json({ message: "Failed to save feature data", status: "error" });
     }
 });
-app.get("/api/company", (req, res) => {
+app.get("/api/companies", (req, res) => {
     try {
         const query = req.query["searchKey"];
         let data = readFromFile(COMPANIES_FILE, {

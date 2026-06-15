@@ -160,10 +160,16 @@ export interface CreateFeatureRequest {
   file?: File | null;
 }
 
+export type Industry =
+  | "IT Service and IT Consulting"
+  | "Software Development"
+  | "Manufacturing";
+
 export interface Company {
   companyId: string;
   companyName: string;
   companyLogoSrc?: string;
+  companyIndustry: Industry;
 }
 
 export interface Job {
@@ -524,7 +530,7 @@ app.post(
   },
 );
 
-app.get("/api/company", (req: Request, res: Response) => {
+app.get("/api/companies", (req: Request, res: Response) => {
   try {
     const query = req.query["searchKey"] as string;
     let data = readFromFile<{ count: number; data: Company[] }>(

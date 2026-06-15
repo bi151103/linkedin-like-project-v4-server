@@ -4,7 +4,8 @@
     "company": {
       "companyId": "company-0",
       "companyName": "CODE LEAP",
-      "companyLogoSrc": "./images/someone-leap.avif"
+      "companyLogoSrc": "assets/images/someone-leap.avif",
+      "companyIndustry": "IT Service and IT Consulting"
     },
     "experiences": [
       {
@@ -34,7 +35,8 @@
     "company": {
       "companyId": "company-1",
       "companyName": "Vietlink",
-      "companyLogoSrc": "./images/link.avif"
+      "companyLogoSrc": "assets/images/link.avif",
+      "companyIndustry": "IT Service and IT Consulting"
     },
     "experiences": [
       {
@@ -54,7 +56,8 @@
     "company": {
       "companyId": "company-2",
       "companyName": "TESTINGVN",
-      "companyLogoSrc": "./images/fresher.avif"
+      "companyLogoSrc": "assets/images/fresher.avif",
+      "companyIndustry": "Software Development"
     },
     "experiences": [
       {

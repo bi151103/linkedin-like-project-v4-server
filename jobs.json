@@ -6,7 +6,7 @@
       "company": {
         "companyId": "company-0",
         "companyName": "CODE LEAP",
-        "companyLogoSrc": "./images/someone-leap.avif"
+        "companyLogoSrc": "assets/images/someone-leap.avif"
       },
       "title": "Frontend Developer",
       "location": "Ho Chi Minh City",
@@ -37,7 +37,7 @@
       "company": {
         "companyId": "company-0",
         "companyName": "CODE LEAP",
-        "companyLogoSrc": "./images/someone-leap.avif"
+        "companyLogoSrc": "assets/images/someone-leap.avif"
       },
       "title": "DevOps Engineer",
       "location": "Da Nang",
@@ -68,7 +68,7 @@
       "company": {
         "companyId": "company-0",
         "companyName": "CODE LEAP",
-        "companyLogoSrc": "./images/someone-leap.avif"
+        "companyLogoSrc": "assets/images/someone-leap.avif"
       },
       "title": "UI/UX Designer",
       "location": "Ha Noi",
@@ -99,7 +99,7 @@
       "company": {
         "companyId": "company-0",
         "companyName": "CODE LEAP",
-        "companyLogoSrc": "./images/someone-leap.avif"
+        "companyLogoSrc": "assets/images/someone-leap.avif"
       },
       "title": "System Architect",
       "location": "Ho Chi Minh City",
@@ -130,7 +130,7 @@
       "company": {
         "companyId": "company-0",
         "companyName": "CODE LEAP",
-        "companyLogoSrc": "./images/someone-leap.avif"
+        "companyLogoSrc": "assets/images/someone-leap.avif"
       },
       "title": "Tech Lead",
       "location": "Ho Chi Minh City",

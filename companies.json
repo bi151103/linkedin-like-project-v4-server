@@ -4,32 +4,38 @@
     {
       "companyId": "company-0",
       "companyName": "CODE LEAP",
-      "companyLogoSrc": "./images/someone-leap.avif"
+      "companyLogoSrc": "./images/someone-leap.avif",
+      "companyIndustry": "IT Service and IT Consulting"
     },
     {
       "companyId": "company-1",
       "companyName": "Vietlink",
-      "companyLogoSrc": ""
+      "companyLogoSrc": "",
+      "companyIndustry": "IT Service and IT Consulting"
     },
     {
       "companyId": "company-2",
       "companyName": "TESTINGVN",
-      "companyLogoSrc": ""
+      "companyLogoSrc": "",
+      "companyIndustry": "Software Development"
     },
     {
       "companyId": "company-3",
       "companyName": "FPT",
-      "companyLogoSrc": ""
+      "companyLogoSrc": "",
+      "companyIndustry": "Software Development"
     },
     {
       "companyId": "company-4",
       "companyName": "KMS",
-      "companyLogoSrc": ""
+      "companyLogoSrc": "",
+      "companyIndustry": "Software Development"
     },
     {
       "companyId": "company-5",
       "companyName": "NAB",
-      "companyLogoSrc": ""
+      "companyLogoSrc": "",
+      "companyIndustry": "Software Development"
     }
   ]
 }
