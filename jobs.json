@@ -16,7 +16,8 @@
       "id": "job-1",
       "company": {
         "companyId": "company-4",
-        "companyName": "KMS"
+        "companyName": "KMS",
+        "companyLogoSrc": "assets/images/free-k.png"
       },
       "title": "Backend Engineer",
       "location": "Ho Chi Minh City",
@@ -26,7 +27,8 @@
       "id": "job-2",
       "company": {
         "companyId": "company-5",
-        "companyName": "Nab"
+        "companyName": "Nab",
+        "companyLogoSrc": "assets/images/free-national-australia-bank-limited-nab-logo-png.png"
       },
       "title": "Fullstack Developer",
       "location": "Ha Noi",
@@ -47,7 +49,8 @@
       "id": "job-4",
       "company": {
         "companyId": "company-4",
-        "companyName": "KMS"
+        "companyName": "KMS",
+        "companyLogoSrc": "assets/images/free-k.png"
       },
       "title": "QA Engineer",
       "location": "Ho Chi Minh City",
@@ -57,7 +60,8 @@
       "id": "job-5",
       "company": {
         "companyId": "company-5",
-        "companyName": "Nab"
+        "companyName": "Nab",
+        "companyLogoSrc": "assets/images/free-national-australia-bank-limited-nab-logo-png.png"
       },
       "title": "Data Analyst",
       "location": "Ho Chi Minh City",
@@ -78,7 +82,8 @@
       "id": "job-7",
       "company": {
         "companyId": "company-4",
-        "companyName": "KMS"
+        "companyName": "KMS",
+        "companyLogoSrc": "assets/images/free-k.png"
       },
       "title": "Product Manager",
       "location": "Ho Chi Minh City",
@@ -88,7 +93,8 @@
       "id": "job-8",
       "company": {
         "companyId": "company-5",
-        "companyName": "Nab"
+        "companyName": "Nab",
+        "companyLogoSrc": "assets/images/free-national-australia-bank-limited-nab-logo-png.png"
       },
       "title": "Mobile Developer",
       "location": "Da Nang",
@@ -109,7 +115,8 @@
       "id": "job-10",
       "company": {
         "companyId": "company-4",
-        "companyName": "KMS"
+        "companyName": "KMS",
+        "companyLogoSrc": "assets/images/free-k.png"
       },
       "title": "Cloud Engineer",
       "location": "Ho Chi Minh City",
@@ -119,7 +126,8 @@
       "id": "job-11",
       "company": {
         "companyId": "company-5",
-        "companyName": "Nab"
+        "companyName": "Nab",
+        "companyLogoSrc": "assets/images/free-national-australia-bank-limited-nab-logo-png.png"
       },
       "title": "Security Specialist",
       "location": "Ha Noi",
@@ -140,7 +148,8 @@
       "id": "job-13",
       "company": {
         "companyId": "company-4",
-        "companyName": "KMS"
+        "companyName": "KMS",
+        "companyLogoSrc": "assets/images/free-k.png"
       },
       "title": "Engineering Manager",
       "location": "Ho Chi Minh City",
@@ -150,7 +159,8 @@
       "id": "job-14",
       "company": {
         "companyId": "company-5",
-        "companyName": "Nab"
+        "companyName": "Nab",
+        "companyLogoSrc": "assets/images/free-national-australia-bank-limited-nab-logo-png.png"
       },
       "title": "Software Engineer",
       "location": "Da Nang",

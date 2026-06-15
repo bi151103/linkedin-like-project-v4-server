@@ -365,12 +365,9 @@ app.get("/api/people", (req, res) => {
             data: [],
         });
         if (searchKey) {
-            data.data = data.data.filter((e) => e.firstName
+            data.data = data.data.filter((e) => `${e.firstName} ${e.lastName}`
                 .toLowerCase()
                 .includes(searchKey.toLowerCase()) ||
-                e.lastName
-                    .toLowerCase()
-                    .includes(searchKey.toLowerCase()) ||
                 (e.headline
                     ? e.headline
                         .toLowerCase()

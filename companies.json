@@ -10,31 +10,31 @@
     {
       "companyId": "company-1",
       "companyName": "Vietlink",
-      "companyLogoSrc": "",
+      "companyLogoSrc": "assets/images/link.avif",
       "companyIndustry": "IT Service and IT Consulting"
     },
     {
       "companyId": "company-2",
       "companyName": "TESTINGVN",
-      "companyLogoSrc": "",
+      "companyLogoSrc": "assets/images/fresher.avif",
       "companyIndustry": "Software Development"
     },
     {
       "companyId": "company-3",
       "companyName": "FPT",
-      "companyLogoSrc": "",
+      "companyLogoSrc": "assets/images/free-f.png",
       "companyIndustry": "Software Development"
     },
     {
       "companyId": "company-4",
       "companyName": "KMS",
-      "companyLogoSrc": "",
+      "companyLogoSrc": "assets/images/free-k.png",
       "companyIndustry": "Software Development"
     },
     {
       "companyId": "company-5",
       "companyName": "NAB",
-      "companyLogoSrc": "",
+      "companyLogoSrc": "assets/images/free-national-australia-bank-limited-nab-logo-png.png",
       "companyIndustry": "Software Development"
     }
   ]
