@@ -319,6 +319,7 @@ app.post("/api/features", upload.single("file"), (req, res) => {
 app.get("/api/companies", (req, res) => {
     try {
         const query = req.query["searchKey"];
+        addRecentSearch(query);
         let data = readFromFile(COMPANIES_FILE, {
             count: 0,
             data: [],
@@ -338,6 +339,7 @@ app.get("/api/companies", (req, res) => {
 app.get("/api/jobs", (req, res) => {
     try {
         const { searchKey } = req.query;
+        addRecentSearch(searchKey);
         let data = readFromFile(JOBS_FILE, {
             count: 0,
             data: [],
@@ -360,6 +362,7 @@ app.get("/api/jobs", (req, res) => {
 app.get("/api/people", (req, res) => {
     try {
         const { searchKey } = req.query;
+        addRecentSearch(searchKey);
         let data = readFromFile(PEOPLE_FILE, {
             count: 0,
             data: [],
@@ -397,6 +400,7 @@ app.get("/api/people", (req, res) => {
 app.get("/api/groups", (req, res) => {
     try {
         const { searchKey } = req.query;
+        addRecentSearch(searchKey);
         let data = readFromFile(GROUPS_FILE, {
             count: 0,
             data: [],
@@ -421,6 +425,7 @@ app.get("/api/groups", (req, res) => {
 app.get("/api/education-institutions", (req, res) => {
     try {
         const { searchKey } = req.query;
+        addRecentSearch(searchKey);
         let data = readFromFile(INSTITUTIONS_FILE, {
             count: 0,
             data: [],
@@ -439,6 +444,22 @@ app.get("/api/education-institutions", (req, res) => {
         res.status(500).json({ message: "Failed to read group data" });
     }
 });
+function addRecentSearch(searchKey) {
+    try {
+        const current = readFromFile(RECENT_SERCH_FILE, {
+            count: 0,
+            data: [],
+        });
+        if (!current.data.find((e) => e.toLowerCase() === searchKey.toLowerCase())) {
+            current.data = [searchKey, ...current.data];
+            current.count++;
+        }
+        fs.writeFileSync(RECENT_SERCH_FILE, JSON.stringify(current, null, 2), "utf8");
+    }
+    catch (error) {
+        throw error;
+    }
+}
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

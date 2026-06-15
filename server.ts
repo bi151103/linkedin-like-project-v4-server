@@ -533,6 +533,7 @@ app.post(
 app.get("/api/companies", (req: Request, res: Response) => {
   try {
     const query = req.query["searchKey"] as string;
+    addRecentSearch(query);
     let data = readFromFile<{ count: number; data: Company[] }>(
       COMPANIES_FILE,
       {
@@ -557,6 +558,7 @@ app.get("/api/companies", (req: Request, res: Response) => {
 app.get("/api/jobs", (req: Request, res: Response) => {
   try {
     const { searchKey } = req.query;
+    addRecentSearch(searchKey as string);
     let data = readFromFile<{ count: number; data: Job[] }>(JOBS_FILE, {
       count: 0,
       data: [],
@@ -582,6 +584,7 @@ app.get("/api/jobs", (req: Request, res: Response) => {
 app.get("/api/people", (req: Request, res: Response) => {
   try {
     const { searchKey } = req.query;
+    addRecentSearch(searchKey as string);
     let data = readFromFile<{ count: number; data: Person[] }>(PEOPLE_FILE, {
       count: 0,
       data: [],
@@ -622,6 +625,7 @@ app.get("/api/people", (req: Request, res: Response) => {
 app.get("/api/groups", (req: Request, res: Response) => {
   try {
     const { searchKey } = req.query;
+    addRecentSearch(searchKey as string);
     let data = readFromFile<{ count: number; data: Group[] }>(GROUPS_FILE, {
       count: 0,
       data: [],
@@ -649,6 +653,7 @@ app.get("/api/groups", (req: Request, res: Response) => {
 app.get("/api/education-institutions", (req: Request, res: Response) => {
   try {
     const { searchKey } = req.query;
+    addRecentSearch(searchKey as string);
     let data = readFromFile<{ count: number; data: Institution[] }>(
       INSTITUTIONS_FILE,
       {
@@ -671,6 +676,29 @@ app.get("/api/education-institutions", (req: Request, res: Response) => {
     res.status(500).json({ message: "Failed to read group data" });
   }
 });
+
+function addRecentSearch(searchKey: string) {
+  try {
+    const current = readFromFile<RecentSearchData>(RECENT_SERCH_FILE, {
+      count: 0,
+      data: [],
+    });
+    if (
+      !current.data.find((e) => e.toLowerCase() === searchKey.toLowerCase())
+    ) {
+      current.data = [searchKey, ...current.data];
+      current.count++;
+    }
+
+    fs.writeFileSync(
+      RECENT_SERCH_FILE,
+      JSON.stringify(current, null, 2),
+      "utf8",
+    );
+  } catch (error) {
+    throw error;
+  }
+}
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
