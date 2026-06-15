@@ -4,7 +4,7 @@
     {
       "companyId": "company-0",
       "companyName": "CODE LEAP",
-      "companyLogoSrc": "./images/someone-leap.avif",
+      "companyLogoSrc": "assets/images/someone-leap.avif",
       "companyIndustry": "IT Service and IT Consulting"
     },
     {
