@@ -24,6 +24,9 @@ const GROUPS_FILE = path.join(__dirname, "groups.json");
 const INSTITUTIONS_FILE = path.join(__dirname, "institutions.json");
 const JOBS_FILE = path.join(__dirname, "jobs.json");
 const PEOPLE_FILE = path.join(__dirname, "people.json");
+const LOCATIONS_FILE = path.join(__dirname, "locations.json");
+const COUNTRIES_FILE = path.join(__dirname, "countries.json");
+const INDUSTRIES_FILE = path.join(__dirname, "industries.json");
 
 const UPLOADS_DIR = path.join(__dirname, "uploads");
 if (!fs.existsSync(UPLOADS_DIR)) {
@@ -79,8 +82,8 @@ type UserInfo = {
   education?: Education;
   showEducation: boolean;
   industry: string;
-  country: string;
-  location: string;
+  country: Country;
+  location: Location;
 };
 
 type JsonValue =
@@ -160,6 +163,9 @@ export interface CreateFeatureRequest {
   file?: File | null;
 }
 
+export type Country = { id: string; name: string };
+export type Location = string;
+
 export type Industry =
   | "IT Service and IT Consulting"
   | "Software Development"
@@ -170,14 +176,17 @@ export interface Company {
   companyName: string;
   companyLogoSrc?: string;
   companyIndustry: Industry;
+  companyCountry: Country;
+  companyLocation: Location;
 }
 
 export interface Job {
   id: string;
   company: Company;
   title: string;
-  location: string;
+  country: Country;
   datePost: string;
+  location: Location;
 }
 
 export interface Person {
@@ -191,8 +200,8 @@ export interface Person {
     hasConnectionInCommon: boolean; //true: 2nd; false: 3rd
     connectedAt?: string;
   };
-  country: string;
-  location: string;
+  country: Country;
+  location: Location;
 }
 
 export interface Group {
@@ -207,6 +216,8 @@ export interface Institution {
   id: string;
   educationName: string;
   educationLogoSrc?: string;
+  country: Country;
+  location: Location;
 }
 
 const readFromFile = <T>(filePath: string, defaultValue: T): T => {
@@ -225,7 +236,10 @@ app.get("/api/user/info", (req: Request, res: Response) => {
       lastName: "",
       showEducation: false,
       industry: "",
-      country: "",
+      country: {
+        id: "",
+        name: "",
+      },
       location: "",
     });
     res.json(data);
@@ -673,7 +687,99 @@ app.get("/api/education-institutions", (req: Request, res: Response) => {
       data: data.data,
     });
   } catch (error) {
-    res.status(500).json({ message: "Failed to read group data" });
+    res.status(500).json({ message: "Failed to read institution data" });
+  }
+});
+
+app.get("/api/industries", (req: Request, res: Response) => {
+  try {
+    const { searchKey } = req.query;
+    let data = readFromFile<Industry[]>(INDUSTRIES_FILE, []);
+    if (searchKey) {
+      data = data.filter((e) =>
+        e.toLowerCase().includes((searchKey as string).toLowerCase()),
+      );
+    }
+    res.json({ count: data.length, data });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read industry data" });
+  }
+});
+
+app.get("/api/countries", (req: Request, res: Response) => {
+  try {
+    const { searchKey } = req.query;
+    let data = readFromFile<Country[]>(COUNTRIES_FILE, []);
+    if (searchKey) {
+      data = data.filter((e) =>
+        e.name.toLowerCase().includes((searchKey as string).toLowerCase()),
+      );
+    }
+    res.json({ count: data.length, data });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read country data" });
+  }
+});
+
+app.get("/api/countries/:id", (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const data = readFromFile<Country[]>(COUNTRIES_FILE, []);
+
+    const countryData = data.find(
+      (e) => e.id.toLowerCase() === (id as string).toLowerCase(),
+    );
+
+    if (!countryData) {
+      res.status(404).json({ message: "Country not found" });
+      return;
+    }
+
+    res.json(countryData);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to read country data" });
+  }
+});
+
+app.get("/api/countries/:id/locations", (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { searchKey } = req.query;
+
+    const data = readFromFile<
+      {
+        country: Country;
+        location: Location[];
+      }[]
+    >(LOCATIONS_FILE, []);
+
+    const countryData = data.find(
+      (e) => e.country.id.toLowerCase() === (id as string).toLowerCase(),
+    );
+
+    if (!countryData) {
+      return res.status(404).json({
+        message: "Country not found",
+      });
+    }
+
+    let location = countryData.location;
+
+    if (searchKey) {
+      location = location.filter((location) =>
+        location.toLowerCase().includes((searchKey as string).toLowerCase()),
+      );
+    }
+
+    return res.json({
+      count: location.length,
+      data: location,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Failed to read location data",
+    });
   }
 });
 

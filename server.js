@@ -21,6 +21,9 @@ const GROUPS_FILE = path.join(__dirname, "groups.json");
 const INSTITUTIONS_FILE = path.join(__dirname, "institutions.json");
 const JOBS_FILE = path.join(__dirname, "jobs.json");
 const PEOPLE_FILE = path.join(__dirname, "people.json");
+const LOCATIONS_FILE = path.join(__dirname, "locations.json");
+const COUNTRIES_FILE = path.join(__dirname, "countries.json");
+const INDUSTRIES_FILE = path.join(__dirname, "industries.json");
 const UPLOADS_DIR = path.join(__dirname, "uploads");
 if (!fs.existsSync(UPLOADS_DIR)) {
     fs.mkdirSync(UPLOADS_DIR, { recursive: true });
@@ -73,7 +76,10 @@ app.get("/api/user/info", (req, res) => {
             lastName: "",
             showEducation: false,
             industry: "",
-            country: "",
+            country: {
+                id: "",
+                name: "",
+            },
             location: "",
         });
         res.json(data);
@@ -441,7 +447,74 @@ app.get("/api/education-institutions", (req, res) => {
         });
     }
     catch (error) {
-        res.status(500).json({ message: "Failed to read group data" });
+        res.status(500).json({ message: "Failed to read institution data" });
+    }
+});
+app.get("/api/industries", (req, res) => {
+    try {
+        const { searchKey } = req.query;
+        let data = readFromFile(INDUSTRIES_FILE, []);
+        if (searchKey) {
+            data = data.filter((e) => e.toLowerCase().includes(searchKey.toLowerCase()));
+        }
+        res.json({ count: data.length, data });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read industry data" });
+    }
+});
+app.get("/api/countries", (req, res) => {
+    try {
+        const { searchKey } = req.query;
+        let data = readFromFile(COUNTRIES_FILE, []);
+        if (searchKey) {
+            data = data.filter((e) => e.name.toLowerCase().includes(searchKey.toLowerCase()));
+        }
+        res.json({ count: data.length, data });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read country data" });
+    }
+});
+app.get("/api/countries/:id", (req, res) => {
+    try {
+        const { id } = req.params;
+        const data = readFromFile(COUNTRIES_FILE, []);
+        const countryData = data.find((e) => e.id.toLowerCase() === id.toLowerCase());
+        if (!countryData) {
+            res.status(404).json({ message: "Country not found" });
+            return;
+        }
+        res.json(countryData);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Failed to read country data" });
+    }
+});
+app.get("/api/countries/:id/locations", (req, res) => {
+    try {
+        const { id } = req.params;
+        const { searchKey } = req.query;
+        const data = readFromFile(LOCATIONS_FILE, []);
+        const countryData = data.find((e) => e.country.id.toLowerCase() === id.toLowerCase());
+        if (!countryData) {
+            return res.status(404).json({
+                message: "Country not found",
+            });
+        }
+        let location = countryData.location;
+        if (searchKey) {
+            location = location.filter((location) => location.toLowerCase().includes(searchKey.toLowerCase()));
+        }
+        return res.json({
+            count: location.length,
+            data: location,
+        });
+    }
+    catch (error) {
+        return res.status(500).json({
+            message: "Failed to read location data",
+        });
     }
 });
 function addRecentSearch(searchKey) {

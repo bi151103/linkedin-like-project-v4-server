@@ -5,7 +5,12 @@
       "companyId": "company-0",
       "companyName": "CODE LEAP",
       "companyLogoSrc": "assets/images/someone-leap.avif",
-      "companyIndustry": "IT Service and IT Consulting"
+      "companyIndustry": "IT Service and IT Consulting",
+      "companyCountry": {
+        "id": "country-2",
+        "name": "Vietnam"
+      },
+      "location": "Ho Chi Minh City"
     },
     "experiences": [
       {
@@ -15,7 +20,11 @@
           "start": "08/01/2025",
           "end": "03/01/2026"
         },
-        "location": "Ho Chi Minh City, Vietnam",
+        "country": {
+          "id": "country-2",
+          "name": "Vietnam"
+        },
+        "location": "Ho Chi Minh City",
         "description": "Main responsibilities: \n - Worked in client projects in an Agile environment, attended Sprint events to align with development goals. \n - Clarified unclear points of requirements during Refinement meetings. \n- Executed test on UI/API to validate and verified new features and bug fixes of the product. \n- Logged and tracked defects of the product. \n- Developed and maintained UI test scripts integrated into the CI/CD pipeline. Supported some internal tasks and attended company's bonding activities."
       },
       {
@@ -25,7 +34,11 @@
           "start": "02/01/2025",
           "end": "07/01/2025"
         },
-        "location": "Ho Chi Minh City, Vietnam",
+        "country": {
+          "id": "country-2",
+          "name": "Vietnam"
+        },
+        "location": "Ho Chi Minh City",
         "description": "- Familiarized myself in working in a process of software development. \n - Practiced on software testing by performing tasks of on-going company's projects. \n - Collaborated with stakeholders in the development team to complete tasks and to complete the goal of the projects."
       }
     ]
@@ -36,7 +49,12 @@
       "companyId": "company-1",
       "companyName": "Vietlink",
       "companyLogoSrc": "assets/images/link.avif",
-      "companyIndustry": "IT Service and IT Consulting"
+      "companyIndustry": "IT Service and IT Consulting",
+      "companyCountry": {
+        "id": "country-2",
+        "name": "Vietnam"
+      },
+      "location": "Ho Chi Minh City"
     },
     "experiences": [
       {
@@ -46,7 +64,11 @@
           "start": "06/01/2024",
           "end": "08/01/2024"
         },
-        "location": "Ho Chi Minh City, Vietnam",
+        "country": {
+          "id": "country-2",
+          "name": "Vietnam"
+        },
+        "location": "Ho Chi Minh City",
         "description": "- Studied software testing fundamentals, practiced on analyzing requirements of on-going company's projects under the guidance of the mentor. \n- Reviewed existing on-going company's test suites to understand components of a test case, then designed and executed a test suite to test a website. \n- Participated in testing applications of on-going company's project alongside a QC team member. \n- Practiced on logging bug for issues found when performing testing. \n- Learned basic API Testing concepts and practiced using Postman to verify endpoints of a CMS app."
       }
     ]
@@ -57,7 +79,12 @@
       "companyId": "company-2",
       "companyName": "TESTINGVN",
       "companyLogoSrc": "assets/images/fresher.avif",
-      "companyIndustry": "Software Development"
+      "companyIndustry": "Software Development",
+      "companyCountry": {
+        "id": "country-2",
+        "name": "Vietnam"
+      },
+      "location": "Ho Chi Minh City"
     },
     "experiences": [
       {
@@ -67,7 +94,11 @@
           "start": "2024",
           "end": "2024"
         },
-        "location": "Ho Chi Minh City, Vietnam",
+        "country": {
+          "id": "country-2",
+          "name": "Vietnam"
+        },
+        "location": "Ho Chi Minh City",
         "description": "Training Scope: \n - Studied fundamentals in Software Testing, SDLC, Testing Levels/Types, and Defect Management. \n - Learned formal Test Design Techniques (BVA, EP, Decision Table) and practiced writing bug reports and test cases for Web/Mobile/Windows apps under trainer supervision. \n - PET PROJECT: OrangeHRM - Password Change Feature: \n + Description: A practical exercise from the course requiring exploration and testing of the OrangeHRM application (live demo version). \n + Outcome: Defined a test suite covering about 60 cases and found 10 issues in the feature."
       }
     ]

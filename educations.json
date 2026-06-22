@@ -6,7 +6,12 @@
       "institution": {
         "id": "institution-0",
         "educationName": "Ho Chi Minh City University of Technology",
-        "educationLogoSrc": "assets/images/bach-khoa-hcm.avif"
+        "educationLogoSrc": "assets/images/bach-khoa-hcm.avif",
+        "country": {
+          "id": "country-2",
+          "name": "Vietnam"
+        },
+        "location": "Ho Chi Minh City"
       },
       "major": "Computer Science",
       "degreeType": "bachelor",
@@ -20,7 +25,12 @@
       "institution": {
         "id": "institution-1",
         "educationName": "Ho Chi Minh City University of Technology and Education",
-        "educationLogoSrc": ""
+        "educationLogoSrc": "",
+        "country": {
+          "id": "country-2",
+          "name": "Vietnam"
+        },
+        "location": "Ho Chi Minh City"
       },
       "major": "Information Technology",
       "degreeType": "master",

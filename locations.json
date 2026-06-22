@@ -1,0 +1,23 @@
+[
+  {
+    "country": {
+      "id": "country-1",
+      "name": "Germany"
+    },
+    "location": ["Berlin", "Dortmund", "Bayern Munich"]
+  },
+  {
+    "country": {
+      "id": "country-2",
+      "name": "Vietnam"
+    },
+    "location": ["Ho Chi Minh City", "Hanoi Capital", "Da Nang City"]
+  },
+  {
+    "country": {
+      "id": "country-3",
+      "name": "England"
+    },
+    "location": ["Liverpool", "London", "Manchester"]
+  }
+]

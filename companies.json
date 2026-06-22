@@ -5,37 +5,67 @@
       "companyId": "company-0",
       "companyName": "CODE LEAP",
       "companyLogoSrc": "assets/images/someone-leap.avif",
-      "companyIndustry": "IT Service and IT Consulting"
+      "companyIndustry": "IT Service and IT Consulting",
+      "companyCountry": {
+        "id": "country-1",
+        "name": "Germany"
+      },
+      "location": "Berlin"
     },
     {
       "companyId": "company-1",
       "companyName": "Vietlink",
       "companyLogoSrc": "assets/images/link.avif",
-      "companyIndustry": "IT Service and IT Consulting"
+      "companyIndustry": "IT Service and IT Consulting",
+      "companyCountry": {
+        "id": "country-2",
+        "name": "Vietnam"
+      },
+      "location": "Ho Chi Minh City"
     },
     {
       "companyId": "company-2",
       "companyName": "TESTINGVN",
       "companyLogoSrc": "assets/images/fresher.avif",
-      "companyIndustry": "Software Development"
+      "companyIndustry": "Software Development",
+      "companyCountry": {
+        "id": "country-2",
+        "name": "Vietnam"
+      },
+      "location": "Ho Chi Minh City"
     },
     {
       "companyId": "company-3",
       "companyName": "FPT",
       "companyLogoSrc": "assets/images/free-f.png",
-      "companyIndustry": "Software Development"
+      "companyIndustry": "Software Development",
+      "companyCountry": {
+        "id": "country-2",
+        "name": "Vietnam"
+      },
+      "location": "Ho Chi Minh City"
     },
     {
       "companyId": "company-4",
       "companyName": "KMS",
       "companyLogoSrc": "assets/images/free-k.png",
-      "companyIndustry": "Software Development"
+      "companyIndustry": "Software Development",
+      "companyCountry": {
+        "id": "country-2",
+        "name": "Vietnam"
+      },
+      "location": "Da Nang City"
     },
     {
       "companyId": "company-5",
       "companyName": "NAB",
       "companyLogoSrc": "assets/images/free-national-australia-bank-limited-nab-logo-png.png",
-      "companyIndustry": "Software Development"
+      "companyIndustry": "Software Development",
+      "companyCountry": {
+        "id": "country-2",
+        "name": "Vietnam"
+      },
+      "location": "Ho Chi Minh City"
     }
   ]
 }
